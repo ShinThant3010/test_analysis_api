@@ -3,8 +3,8 @@
 Internal FastAPI service that turns incorrectly answered questions into grouped weaknesses.
 
 ## Endpoints
-- `GET /healthz`
-- `POST /weaknesses`
+- `GET /health`
+- `POST /test-analysis`
 
 ## Request
 ```json

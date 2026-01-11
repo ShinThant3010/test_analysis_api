@@ -30,8 +30,8 @@ class WeaknessResponse(BaseModel):
     weaknesses: List[Dict[str, Any]]
 
 
-@app.get("/healthz")
-def healthz() -> Dict[str, str]:
+@app.get("/health")
+def health() -> Dict[str, str]:
     return {"status": "ok"}
 
 

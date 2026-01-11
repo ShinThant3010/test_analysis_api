@@ -40,6 +40,8 @@ def _convert_llm_weaknesses(raw_text: str) -> List[Dict[str, Any]]:
             return data
         return [data]
     except Exception:
+        print("Failed to parse LLM response as JSON or Python literal.")
+        print("LLM Response:", text)
         pass
 
     raise HTTPException(status_code=502, detail="Model response is not valid JSON.")
