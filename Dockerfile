@@ -7,6 +7,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
 
+# Copy source code
+COPY . .
+
 ENV PORT=8080
 EXPOSE 8080
 

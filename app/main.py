@@ -36,10 +36,10 @@ def health() -> Dict[str, str]:
 
 
 @app.post("/test-analysis", response_model=WeaknessResponse)
-def weaknesses(payload: WeaknessRequest) -> WeaknessResponse:
+def weaknesses(request: WeaknessRequest) -> WeaknessResponse:
     weaknesses = extract_weaknesses(
-        payload.incorrect_cases,
-        payload.model_name,
+        request.incorrect_cases,
+        request.model_name,
         PROMPT_TEMPLATE,
     )
     return WeaknessResponse(weaknesses=weaknesses)
