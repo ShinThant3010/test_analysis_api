@@ -30,9 +30,9 @@ Optional: provide `model_name` to override the default Gemini model.
     {
       "id": "uuid",
       "weakness": "...",
-      "pattern_type": "language",
+      "patternType": "language",
       "description": "...",
-      "evidence_question_ids": [123],
+      "evidenceQuestionIds": [123],
       "frequency": 1
     }
   ]
@@ -42,5 +42,5 @@ Optional: provide `model_name` to override the default Gemini model.
 ## Local run
 ```bash
 export GOOGLE_API_KEY="..."
-uvicorn app.main:app --host 0.0.0.0 --port 8080
+uvicorn api:app --host 0.0.0.0 --port 8080
 ```

@@ -6,8 +6,9 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-from app.config import get_default_model, get_prompt_template
-from app.service import extract_weaknesses
+from functions.config import get_default_model, get_prompt_template
+from functions.service import extract_weaknesses
+from functions.utils.json_naming_converter import convert_keys_snake_to_camel
 
 load_dotenv()
 
@@ -35,11 +36,12 @@ def health() -> Dict[str, str]:
     return {"status": "ok"}
 
 
-@app.post("/test-analysis", response_model=WeaknessResponse)
+@app.post("/v1/test-analysis", response_model=WeaknessResponse)
 def weaknesses(request: WeaknessRequest) -> WeaknessResponse:
     weaknesses = extract_weaknesses(
         request.incorrect_cases,
         request.model_name,
         PROMPT_TEMPLATE,
     )
-    return WeaknessResponse(weaknesses=weaknesses)
+    converted = convert_keys_snake_to_camel(weaknesses)
+    return WeaknessResponse(weaknesses=converted)
