@@ -156,7 +156,7 @@ wheels = [
 
 [[package]]
 name = "google-genai"
-version = "0.3.0"
+version = "0.5.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "google-auth" },
@@ -165,9 +165,9 @@ dependencies = [
     { name = "requests" },
     { name = "websockets" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/39/89/b5cc86832c38af16184f85022a1713f1edb487020de12e85b5c7a24cc969/google_genai-0.3.0.tar.gz", hash = "sha256:1e080ca381268912dacc8e0cb15eb203eb4e38f51f6ae35cc5768e5af323c8cc", size = 105869, upload-time = "2024-12-17T19:21:24.126Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4d/35/952981e8ec9678aec4f1da7f5122968fe022abbbb6fedfcd2d0e75cb0083/google_genai-0.5.0.tar.gz", hash = "sha256:69ded0313f35a0cb624a4dee22ae2448068a87105859c6fc338e52e9ac26ecc2", size = 108227, upload-time = "2025-01-13T20:18:33.984Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f9/5c/90a63dbe6846151aa2b47f64ade25754d56ba412195ec0d61a3e29ce442b/google_genai-0.3.0-py3-none-any.whl", hash = "sha256:e45eb1732cf5b1f7c5a4103fe64cc4b577981d7e592e3edfba6d34ec734f56be", size = 111885, upload-time = "2024-12-17T19:21:22.888Z" },
+    { url = "https://files.pythonhosted.org/packages/48/66/5a3d49fbf6dedf4fd953e13636fe14e633af997c85dddc0b7fce998bb7b4/google_genai-0.5.0-py3-none-any.whl", hash = "sha256:9b30c6f1a9208da0378ca2ba03d3c0ed7ac49a264622a54d19e0e6adc16464ec", size = 114168, upload-time = "2025-01-13T20:18:32.781Z" },
 ]
 
 [[package]]
@@ -539,7 +539,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = "==0.115.0" },
-    { name = "google-genai", specifier = "==0.3.0" },
+    { name = "google-genai", specifier = "==0.5.0" },
     { name = "python-dotenv", specifier = "==1.0.1" },
     { name = "pyyaml", specifier = "==6.0.2" },
     { name = "uvicorn", extras = ["standard"], specifier = "==0.30.6" },

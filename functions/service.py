@@ -10,6 +10,8 @@ from typing import Any, Dict, List
 from fastapi import HTTPException
 from google import genai
 
+from functions.utils.token_log import extract_token_counts, log_token_usage
+
 def _get_client() -> genai.Client:
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
@@ -50,6 +52,8 @@ def extract_weaknesses(
     incorrect_cases: List[Dict[str, Any]],
     model_name: str,
     prompt_template: str,
+    *,
+    log_usage: bool = False,
 ) -> List[Dict[str, Any]]:
     if not incorrect_cases:
         return []
@@ -59,7 +63,7 @@ def extract_weaknesses(
     prompt = template.format(cases_json=cases_json)
 
     client = _get_client()
-    start = time.time()
+    start = time.perf_counter()
     response = None
     try:
         response = client.models.generate_content(
@@ -67,7 +71,16 @@ def extract_weaknesses(
             contents=[{"parts": [{"text": prompt}]}],
         )
     finally:
-        _ = time.time() - start
+        runtime_seconds = time.perf_counter() - start
+
+    if log_usage and response is not None:
+        input_tokens, output_tokens = extract_token_counts(response)
+        log_token_usage(
+            "extract_weaknesses",
+            input_tokens,
+            output_tokens,
+            runtime_seconds,
+        )
 
     if response is None or not getattr(response, "text", None):
         raise HTTPException(status_code=502, detail="No response from model")
