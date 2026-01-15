@@ -18,7 +18,6 @@ prompt_template: |
   [
     {{
       "weakness": "short name (1 sentence max, specific to the pattern)",
-      "pattern_type": "language | numeracy | logical_reasoning | reading_comprehension | domain_knowledge | test_strategy | other",
       "description": "2-4 sentences explaining the pattern and why errors happen.",
       "evidence_question_ids": [<questionId>, ...],
       "frequency": <number of questions that show this pattern>

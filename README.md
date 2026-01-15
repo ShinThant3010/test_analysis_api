@@ -30,7 +30,6 @@ Optional: provide `model_name` to override the default Gemini model.
     {
       "id": "uuid",
       "weakness": "...",
-      "patternType": "language",
       "description": "...",
       "evidenceQuestionIds": [123],
       "frequency": 1
